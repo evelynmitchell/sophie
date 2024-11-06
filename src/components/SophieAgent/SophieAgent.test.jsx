@@ -4,27 +4,6 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import SophieAgent from './SophieAgent';
 
-// Mock the shadcn/ui components
-jest.mock('@/components/ui/card', () => ({
-  Card: ({ children, className = "" }) => (
-    <div data-testid="card" className={className}>{children}</div>
-  ),
-  CardHeader: ({ children }) => <div data-testid="card-header">{children}</div>,
-  CardTitle: ({ children, className = "" }) => (
-    <h2 data-testid="card-title" className={className}>{children}</h2>
-  ),
-  CardContent: ({ children }) => <div data-testid="card-content">{children}</div>,
-}));
-
-// Mock Lucide icons
-jest.mock('lucide-react', () => ({
-  MessageCircle: () => <div data-testid="icon-message">MessageCircle</div>,
-  Calendar: () => <div data-testid="icon-calendar">Calendar</div>,
-  CheckSquare: () => <div data-testid="icon-check">CheckSquare</div>,
-  Star: () => <div data-testid="icon-star">Star</div>,
-  Plus: () => <div data-testid="icon-plus">Plus</div>,
-}));
-
 describe('SophieAgent Component', () => {
   beforeEach(() => {
     // Reset any state or mocks before each test
