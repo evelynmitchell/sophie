@@ -21,9 +21,9 @@ jobs:
         id: check-lockfile
         run: |
           if [ -f package-lock.json ]; then
-            echo "::set-output name=exists::true"
+            echo "{exists}={true}" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=exists::false"
+            echo "{exists}={false}" >> $GITHUB_OUTPUT
           fi
 
       - name: Set up Node.js
