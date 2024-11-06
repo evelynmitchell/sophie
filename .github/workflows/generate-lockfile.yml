@@ -10,19 +10,34 @@ jobs:
   generate-lockfile:
     runs-on: ubuntu-latest
 
+    outputs:
+      lockfile-exists: ${{ steps.check-lockfile.outputs.exists }}
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
+
+      - name: Check if package-lock.json exists
+        id: check-lockfile
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "::set-output name=exists::true"
+          else
+            echo "::set-output name=exists::false"
+          fi
 
       - name: Set up Node.js
+        if: steps.check-lockfile.outputs.exists == 'false'
         uses: actions/setup-node@v4
         with:
           node-version: '16'
 
       - name: Install dependencies and generate package-lock.json
+        if: steps.check-lockfile.outputs.exists == 'false'
         run: npm install
 
       - name: Commit and push package-lock.json
+        if: steps.check-lockfile.outputs.exists == 'false'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
