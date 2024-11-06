@@ -2,11 +2,13 @@
   "name": "sophie-agent",
   "version": "1.0.0",
   "description": "Sophie Task Management Agent",
-  "main": "SophieAgent.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -21,8 +23,15 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "babel-jest": "^29.5.0",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
     "jest": "^29.5.0",
-    "jest-environment-jsdom": "^29.5.0"
+    "jest-environment-jsdom": "^29.5.0",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -32,8 +41,10 @@
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"
     },
+    "moduleDirectories": ["node_modules", "src"],
     "moduleNameMapper": {
-      "^@/components/(.*)$": "<rootDir>/components/$1"
+      "^../components/(.*)$": "<rootDir>/src/components/$1",
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     }
   }
 }
