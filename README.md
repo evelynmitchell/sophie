@@ -16,6 +16,10 @@ This uses github actions to test the react component. To do this you will need t
 
 The GITHUB_TOKEN secret token should created automatically. 
 
+The first run of the generate-lockfile workflow will succeed, but you will need to pull the changes to your local repository, and then re-run the action to get the lockfile to pass.
+
+
+
 [ ] deploy to (github pages? Netlify? Vercel?, digital ocean droplet?)
 
 [ ] add some durable storage for the data (sqlite? turso? cloudflare?) ```If you need to persist data or add more complex features, you would need to:
