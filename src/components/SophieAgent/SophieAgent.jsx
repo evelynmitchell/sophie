@@ -1,7 +1,8 @@
 // SophieAgent.jsx
 import React, { useState } from 'react';
 import { MessageCircle, Calendar, CheckSquare, Star, Plus } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent } from '../components/Card';
+import { Card } from '../components/Card';
+import { CardHeader, CardTitle, CardContent } from '../components/Card';
 
 const SophieAgent = () => {
   const [tasks, setTasks] = useState([]);
