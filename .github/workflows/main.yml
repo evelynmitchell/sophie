@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main, ghpages ]
+    branches: [ ghpages ]
   pull_request:
-    branches: [ main ]
+    branches: [ ghpages ]
 
 jobs:
   generate-lockfile:
