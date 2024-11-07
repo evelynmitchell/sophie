@@ -34,11 +34,12 @@ jobs:
 
       - name: Install dependencies and generate package-lock.json
         if: steps.check-lockfile.outputs.exists == 'false'
-        run: npm install
+        run: npm install && echo "npm install"
 
       - name: Commit and push package-lock.json
         if: steps.check-lockfile.outputs.exists == 'false'
         run: |
+          echo "building lockfile"
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add package-lock.json
