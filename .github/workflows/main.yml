@@ -20,6 +20,7 @@ jobs:
       - name: Check if package-lock.json exists
         id: check-lockfile
         run: |
+          ls
           if [ -f package-lock.json ]; then
             echo "{exists}={true}" >> $GITHUB_OUTPUT && echo "exists"
           else
