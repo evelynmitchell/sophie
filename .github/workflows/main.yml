@@ -69,12 +69,11 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Upload test results
+    - name: Start server
+      run: npm start &
+
+    - name: Upload build artifacts
       uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: test-results
-        path: coverage/
 
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
