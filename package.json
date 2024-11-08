@@ -4,11 +4,9 @@
   "description": "Sophie Task Management Agent",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --config webpack.config.js --mode production",
+    "start": "webpack serve --config webpack.config.js --mode development",
+    "dev": "webpack serve --config webpack.config.js --mode development"
   },
   "dependencies": {
     "react": "^18.2.0",

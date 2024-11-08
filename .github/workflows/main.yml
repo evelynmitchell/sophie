@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, ghpages ]
   pull_request:
     branches: [ main ]
 
@@ -20,7 +20,6 @@ jobs:
       - name: Check if package-lock.json exists
         id: check-lockfile
         run: |
-
           if [ -f package-lock.json ]; then
             echo "{exists}={true}" >> $GITHUB_OUTPUT && echo "exists"
           else
@@ -35,11 +34,12 @@ jobs:
 
       - name: Install dependencies and generate package-lock.json
         if: steps.check-lockfile.outputs.exists == 'false'
-        run: npm install
+        run:  npx create-react-app my-app
 
       - name: Commit and push package-lock.json
         if: steps.check-lockfile.outputs.exists == 'false'
         run: |
+          echo "building lockfile"
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add package-lock.json
@@ -61,6 +61,8 @@ jobs:
         node-version: '16'
         cache: 'npm'
 
+    - name: Install gh-pages to bundle for static 
+      run: npm install gh-pages --save-dev
     - name: Install dependencies
       run: npm ci
 
@@ -70,12 +72,11 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Upload test results
+    - name: Start server
+      run: npm start &
+
+    - name: Upload build artifacts
       uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: test-results
-        path: coverage/
 
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
