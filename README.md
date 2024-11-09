@@ -28,4 +28,9 @@ Add a database (MongoDB, PostgreSQL, etc.)
 Create API endpoints for data operations
 Modify the React component to use these APIs```
 
-[ ] 
+[x] Write PRD (Product Requirements Document)
+[x] Write Project Plan
+[x] Write Design doc
+[x] Write Interfaces doc
+[x] Write Runbook, Monitoring, Telemetry, Deployment and Testing docs
+[x] Write Launch plan
