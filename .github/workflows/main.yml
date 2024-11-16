@@ -67,8 +67,9 @@ jobs:
 
     - name: Install gh-pages to bundle for static 
       run: npm install gh-pages --save-dev
+
     - name: Install dependencies
-      run: npm ci
+      run: npm install
 
     - name: Run tests
       run: npm test
@@ -78,6 +79,9 @@ jobs:
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: ./dist
 
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
