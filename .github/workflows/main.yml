@@ -65,6 +65,9 @@ jobs:
         node-version: '16'
         cache: 'npm'
 
+    - name: Create npm cache directory
+      run: mkdir -p /home/runner/.npm
+
     - name: Configure npm cache
       run: npm config set cache /home/runner/.npm
 
