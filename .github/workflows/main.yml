@@ -65,6 +65,10 @@ jobs:
         node-version: '16'
         cache: 'npm'
 
+    - name: Configure npm cache
+      run: npm config set cache /home/runner/.npm
+
+
     - name: Install gh-pages to bundle for static 
       run: npm install gh-pages --save-dev
 
