@@ -5,6 +5,8 @@ Using Claude Sonnet, writing a React component to display Sophie, a personal ass
 
 This uses github actions to test the react component. To do this you will need to set Actions to have read and write access to the repository. (This is a security risk, so be sure to understand the implications of this.)
 
+https://claude.ai/chat/397839f1-fa96-4957-99e3-f932563bf4e7
+
 ```
 
     Going to the repository settings.
