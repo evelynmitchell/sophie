@@ -9,6 +9,24 @@ module.exports = {
   },
   mode: 'development',
   devtool: 'inline-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
