@@ -69,7 +69,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'public/index.html'),
+        template: path.resolve(__dirname, 'index.html'),
         title: 'Sophie Task Management Agent',
         inject: true,
         minify: {
