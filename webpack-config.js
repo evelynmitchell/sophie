@@ -10,9 +10,9 @@ module.exports = (env, argv) => {
       filename: isProduction ? '[name].[contenthash].js' : '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
       clean: true,
-      publicPath: isProduction 
-        ? '/sophie-agent/' // Your GitHub repo name
-        : '/',
+      publicPath: process.env.NODE_ENV === 'production' 
+      ? '/sophie-agent/'  // Must match your repo name
+      : '/',
     },
     mode: argv.mode,
     devtool: isProduction ? 'source-map' : 'inline-source-map',
