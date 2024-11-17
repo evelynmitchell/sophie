@@ -39,12 +39,10 @@ module.exports = (env, argv) => {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
         },
-        // Add support for Lucide React SVG icons
         {
           test: /\.svg$/,
           use: ['@svgr/webpack']
         },
-        // Add support for other assets
         {
           test: /\.(png|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
@@ -53,7 +51,6 @@ module.exports = (env, argv) => {
     },
     resolve: {
       extensions: ['.js', '.jsx'],
-      // Add alias for easier imports
       alias: {
         components: path.resolve(__dirname, 'src/components/'),
       }
@@ -67,14 +64,26 @@ module.exports = (env, argv) => {
       hot: true,
       historyApiFallback: true,
       client: {
-        overlay: true, // Shows compiler errors in browser
+        overlay: true,
       },
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public/index.html'),
         title: 'Sophie Task Management Agent',
-        favicon: path.resolve(__dirname, 'public/favicon.ico'), // If you have a favicon
+        inject: true,
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeRedundantAttributes: true,
+          useShortDoctype: true,
+          removeEmptyAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          keepClosingSlash: true,
+          minifyJS: true,
+          minifyCSS: true,
+          minifyURLs: true,
+        },
       }),
     ],
     optimization: {
@@ -89,9 +98,6 @@ module.exports = (env, argv) => {
           },
         },
       },
-    },
-    performance: {
-      hints: isProduction ? 'warning' : false,
     },
   };
 };
