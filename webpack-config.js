@@ -7,7 +7,7 @@ module.exports = (env, argv) => {
   return {
     entry: './src/index.js',
     output: {
-      filename: isProduction ? '[name].[contenthash].js' : '[name].bundle.js',
+      filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
       clean: true,
       publicPath: process.env.NODE_ENV === 'production' 
