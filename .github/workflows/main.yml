@@ -76,8 +76,8 @@ jobs:
     - name: Verify npm cache configuration
       run: npm config get cache
 
-    - name: Install gh-pages to bundle for static 
-      run: npm install gh-pages --save-dev
+    #- name: Install gh-pages to bundle for static 
+    #  run: npm install gh-pages --save-dev
 
     - name: Install dependencies
       run: npm install
