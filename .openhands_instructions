@@ -1,0 +1,46 @@
+Repository: sophie
+Description: A personal assistant that helps you manage your daily tasks and schedule.
+
+Directory Structure:
+- .github/: GitHub Actions configuration
+- .github/workflows/: GitHub Actions workflows
+- .venv/: Virtual environment for Python
+- agents/: Prompts for the assistant agents in markdown format
+- docs/: Documentation in Sphinx and markdown format
+- docs/PRD.md: Product Requirements Document
+- docs/ContentCategories.md: Content categories for the assistant for different requirements
+- docs/Deploy.md: Deployment instructions for a DigitalOcean application
+- docs/Design.md: Design documentation
+- docs/Interfaces.md: Interfaces documentation API and CLI
+- docs/LaunchPlan.md: Launch plan for the assistant
+- docs/Monitoring.md: Monitoring and logging plan
+- docs/ProjectPlan.md: Project plan for the assistant
+- docs/Requirements.md: Requirements documentation
+- docs/Runbook.md: Runbook for the assistant
+- docs/Security.md: Security requirments
+- docs/Telemetry.md: Telemetry plan
+- docs/Testing.md: Testing plan
+- node_modules/: Node.js modules
+- public/: Public files for node.js and react application
+- src/: Main application code
+- src/__tests__/: Test files for the application
+- src/components/: React components
+
+Setup:
+- Run `npm install` to install dependencies
+- Use `npm run dev` for development
+- Run `npm test` for testing
+
+Guidelines:
+- Follow ESLint configuration
+- Write tests for all new features
+- Use TypeScript for new code
+
+Tool versions:
+ node.js: x.x.x
+ React: x.x.x
+ Sphinx: x.x.x
+ Typescript: x.x.x
+ ESLint: x.x.x
+ DigitalOcean application: x.x.x
+
